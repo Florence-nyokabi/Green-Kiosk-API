@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="cart-container">
+        <h1>Products added to Cart</h1>
+        <div class="cart-items">
+            {% for item in product_cart %}
+            <div class="cart-item">
+
+                <div class="cart-item-details">
+                    <p class="product-name">{{ item.product_name }}</p>
+                    <p class="product-price">Price: Ksh {{ item.product_price }}</p>
+                    <p>Quantity: {{ item.product_quantity }}</p>
+                </div>
+
+                <div class="cart-item-actions">
+                    <a href="{% url 'remove_item' id=item.id %}" class="remove">Remove Item</a>
+                </div>
+
+            </div>
+
+            {% endfor %}
+        </div>
+
+        
+
+        <div class="cart-buttons">
+            <a href="{% url 'product_list_view' %}" class="cart-button">Continue Shopping</a>
+            <a href="{% url 'make_payment' %}" class="cart-button">Proceed to Pay</a>
+            <a href="{% url 'empty_cart' %}" class="cart-button">Delete all Items</a>
+        </div>
+
+    </div>
+</body>
+
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 50px;
+            background-color: #ccc;
+        }
+        .cart-container {
+            text-align: center;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+            border-radius: 8px;
+          
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .cart-item-details {
+            flex: 1;
+            padding-left: 10px;
+            text-align: left;
+        }
+        .cart-item-actions {
+            padding-left: 10px;
+        }
+        .product-name {
+            font-weight: bold;
+        }
+        .product-price {
+            color: rgb(10, 66, 8);
+        }
+        .remove {
+            color: rgb(10, 66, 8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .remove:hover {
+            color: rgb(194, 10, 10);
+        }
+        .total-price {
+            font-weight: bolder;
+            font-size: x-large;
+            margin-top: 20px;
+        }
+        .cart-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            
+        }
+        .cart-button {
+            background-color: rgb(10, 66, 8);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 20px 30px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+        .cart-button:hover {
+            background-color: rgb(194, 10, 10);
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,5 @@
+myenv/
+media/
+*.sqlite3
+*.log
+images/

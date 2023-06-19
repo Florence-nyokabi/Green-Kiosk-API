@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Make your Payment here</h1>
+    <br>
+    <div class="total_price">
+        <p>Total Amount: Ksh {{ total_price }}</p>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Pay Now</button>
+    </form>
+    <br>
+    <a href="{% url 'view_cart' %}" class="back-to-cart"><button>Go back to cart</button></a>
+
+    <style>
+        body {
+            font-family:'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 50px;
+            background-color: #ccc;
+        }
+        button{
+            background-color: rgb(10, 66, 8);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 20px 50px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: rgb(194, 10, 10);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input{
+            padding: 20px;
+            border-radius: 4px;
+        }
+        .total_price{
+            margin-left: 40%;
+            font-weight: bolder;
+        }
+        form{
+            margin-left: 40%;
+        }
+        .back-to-cart{
+            margin-left: 40%;  
+        }
+    </style>
+</body>
+</html>
