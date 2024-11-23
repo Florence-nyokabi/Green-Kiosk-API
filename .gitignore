@@ -3,3 +3,4 @@ media/
 *.sqlite3
 *.log
 images/
+.env
